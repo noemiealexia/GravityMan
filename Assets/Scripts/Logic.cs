@@ -10,6 +10,7 @@ public class Logic : MonoBehaviour
     public int fruitsLeft;
     public TextMeshProUGUI fruitsText;
 
+    public float elapsedTime;
     public TextMeshProUGUI timeText;
 
 
@@ -22,6 +23,10 @@ public class Logic : MonoBehaviour
 
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+        int minutes = Mathf.FloorToInt(elapsedTime / 60);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60);
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         if (fruitsLeft == 8)
         {
