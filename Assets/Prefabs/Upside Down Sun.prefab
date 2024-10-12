@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6013027062093570370}
   - component: {fileID: 2710940852148152902}
   - component: {fileID: 4924073709921748170}
+  - component: {fileID: 3282691208920785712}
   m_Layer: 0
   m_Name: Upside Down Sun
   m_TagString: Untagged
@@ -114,7 +115,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -260,3 +261,16 @@ PolygonCollider2D:
       - {x: 5.275, y: -4.535}
       - {x: 5.245, y: -4.305}
   m_UseDelaunayMesh: 0
+--- !u!114 &3282691208920785712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925648116550795253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89838c5f299e6034193f3e7edeec8331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logic: {fileID: 0}
