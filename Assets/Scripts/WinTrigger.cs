@@ -18,6 +18,7 @@ public class WinTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         logic.stopTimer = true;
+
         logic.KeepHighScore();
 
 
