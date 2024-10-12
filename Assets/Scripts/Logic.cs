@@ -13,9 +13,13 @@ public class Logic : MonoBehaviour
     public float elapsedTime;
     public TextMeshProUGUI timeText;
 
+    public bool stopTimer;
+
 
     private void Start()
     {
+        stopTimer = false;
+
         if (PlayerPrefs.HasKey("timeValue"))
         {
             elapsedTime = PlayerPrefs.GetFloat("timeValue");
@@ -46,11 +50,14 @@ public class Logic : MonoBehaviour
 
     void Update()
     {
-        elapsedTime += Time.deltaTime;
-        PlayerPrefs.SetFloat("timeValue", elapsedTime);
-        int minutes = Mathf.FloorToInt(elapsedTime / 60);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if (!stopTimer)
+        {
+            elapsedTime += Time.deltaTime;
+            PlayerPrefs.SetFloat("timeValue", elapsedTime);
+            int minutes = Mathf.FloorToInt(elapsedTime / 60);
+            int seconds = Mathf.FloorToInt(elapsedTime % 60);
+            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
 
         if (fruitsLeft == 8)
         {
@@ -59,6 +66,7 @@ public class Logic : MonoBehaviour
         }
         
     }
+
 
 
 

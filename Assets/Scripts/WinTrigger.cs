@@ -1,28 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Fruits : MonoBehaviour
+public class WinTrigger : MonoBehaviour
 {
 
     public Logic logic;
-    public PlayerController player;
 
     private void Start()
     {
 
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        logic.AddScore();
-        Destroy(gameObject);
+        logic.stopTimer = true;
+        logic.KeepHighScore();
+
 
     }
 
+    public void BackToMain()
+    {
+        logic.ResetTimer();
+        SceneManager.LoadScene(0);
 
-
+    }
 }
