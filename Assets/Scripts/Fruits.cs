@@ -18,7 +18,7 @@ public class Fruits : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        logic.KeepHighScore();
         logic.AddScore();
         Destroy(gameObject);
 

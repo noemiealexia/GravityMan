@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5;
     private float moveInput;
-    public float deadZone = 7;
+    public float deadZone = 8;
+    public Logic logic;
 
     private Rigidbody2D rigidBody;
 
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic>();
     }
 
     void FixedUpdate()
@@ -33,8 +35,9 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (transform.position.y > deadZone)
+        if (transform.position.y > deadZone || transform.position.y < -deadZone)
         {
+            logic.ResetTimer();
             SceneManager.LoadScene(0);
         }
 

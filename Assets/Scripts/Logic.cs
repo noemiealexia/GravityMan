@@ -14,6 +14,15 @@ public class Logic : MonoBehaviour
     public TextMeshProUGUI timeText;
 
 
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("timeValue"))
+        {
+            elapsedTime = PlayerPrefs.GetFloat("timeValue");
+        }
+
+    }
+
     public void AddScore()
     {
         fruitsLeft++;
@@ -21,9 +30,24 @@ public class Logic : MonoBehaviour
 
     }
 
+    public void KeepHighScore()
+    {
+        if (elapsedTime < PlayerPrefs.GetFloat("HighScore"))
+        {
+            PlayerPrefs.SetFloat("HighScore", elapsedTime);
+        }
+    }
+
+    public void ResetTimer()
+    {
+        elapsedTime = 0;
+        PlayerPrefs.SetFloat("timeValue", elapsedTime);
+    }
+
     void Update()
     {
         elapsedTime += Time.deltaTime;
+        PlayerPrefs.SetFloat("timeValue", elapsedTime);
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -35,5 +59,7 @@ public class Logic : MonoBehaviour
         }
         
     }
+
+
 
 }

@@ -5,13 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Obstacles : MonoBehaviour
 {
-    public int menu = 0;
+    public Logic logic;
+
+    void Start()
+    {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic>();
+    }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(menu);
+            logic.ResetTimer();
+            SceneManager.LoadScene(0);
         }
         
     }
