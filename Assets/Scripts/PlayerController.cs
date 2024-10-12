@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
 
     public float speed = 5;
     private float moveInput;
+    public float deadZone = 7;
 
     private Rigidbody2D rigidBody;
 
@@ -29,6 +31,11 @@ public class PlayerController : MonoBehaviour
         else if (facingRight == true && moveInput < 0)
         {
             Flip();
+        }
+
+        if (transform.position.y > deadZone)
+        {
+            SceneManager.LoadScene(0);
         }
 
 

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Obstacles : MonoBehaviour
 {
-    public int menu;
+    public int menu = 0;
 
     void OnTriggerEnter2D(Collider2D other)
     {
