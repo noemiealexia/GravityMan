@@ -319,7 +319,7 @@ PrefabInstance:
       objectReference: {fileID: 1302339068}
     - target: {fileID: 675056546142731319, guid: 69811cb768261584e89ad1e2675c9e73, type: 3}
       propertyPath: fruitsLeft
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 675056546142731319, guid: 69811cb768261584e89ad1e2675c9e73, type: 3}
       propertyPath: fruitsText
